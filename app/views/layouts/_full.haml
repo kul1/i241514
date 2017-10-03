@@ -25,6 +25,7 @@
         %div{"data-role" => "content"}
           = yield
       = render :partial => "mindapp/static"
+        
 :javascript
   $(document).on("pagehide", 'div', function(e,ui) {
     var page = $(e.target);
