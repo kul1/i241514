@@ -21,6 +21,5 @@
 //= require mindapp
 //= require turbolinks
 //= require ckeditor/init
-//= require social-share-button
 
 

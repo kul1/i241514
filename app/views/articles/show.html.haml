@@ -9,8 +9,15 @@
     %- @article.text
   
 %div= @article.body.html_safe
-= social_share_button_tag(@article.title)
-
+/ Buttons start here. Copy this ul to your document.
+%ul.rrssb-buttons.clearfix
+  %li.rrssb-facebook
+    / Replace with your URL. For best results, make sure you page has the proper FB Open Graph tags in header: https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/
+    %a.popup{:href => "https://www.facebook.com/sharer/sharer.php?u=#{request.protocol}#{request.host_with_port}"}
+      %span.rrssb-icon
+        %svg{:viewbox => "0 0 29 29", :xmlns => "http://www.w3.org/2000/svg"}
+          %path{:d => "M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"}
+      %span.rrssb-text facebook
 = link_to image_tag('pencil.png', style:'border:none; float:none;'), {controller: "mindapp", action: "init", s: 'articles:xedit_article', article_id: @article.id}, data: { confirm: "Please Confirm" }
 - @comments.each do |comment|
   %div#article-comment.ui-corner-all
@@ -26,3 +33,8 @@
     = f.label :body, "Comment"
     = f.text_area :body
     = f.submit
+
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+:javascript
+  window.jQuery || document.write('<script src="js/vendor/jquery.1.10.2.min.js"><\/script>')
+= javascript_include_tag 'js/rrssb.min.js' 
