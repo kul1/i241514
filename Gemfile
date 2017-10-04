@@ -5,8 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'mindapp2'
-
+gem 'mindapp2', '~> 0.1.1.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use Puma as the app server
@@ -83,11 +82,4 @@ group :development, :test do
   gem 'pry-byebug'
 end
 
-group :development, :test do
-end
 
-group :development, :test do
-end
-
-group :development, :test do
-end
